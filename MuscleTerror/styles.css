@@ -1,0 +1,44 @@
+.ref {
+	padding-top: 23px;
+	font-family: gothic;
+
+}
+.head {
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+	font-size: 4em;
+	padding-top: 15px;
+}
+.row2 {
+	font-size: 2em;
+	font-family: century;
+
+}
+.row3 {
+	text-align: center;
+	height: 600px;
+}
+.img1 {
+	height:400px;
+	width: 400px;
+}
+.row4 {
+	text-align: center;
+}
+.x {
+	font-size: 1.5em;
+	font-family: century;
+}
+body {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+.row5 {
+	padding-top: 200px;
+}
+.steps {
+	font-size: 2.5em;
+	text-align: center;
+	font-family: century;
+}

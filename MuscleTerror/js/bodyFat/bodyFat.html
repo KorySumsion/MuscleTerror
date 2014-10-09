@@ -1,0 +1,267 @@
+<div class="row1">
+	<div class="col-md-12">
+		<p class="text-center"><strong class="steps">STEP 2 CALCULATE YOUR BODY FAT PERCENTAGE</strong></p>
+	</div>
+</div>
+<div class="row5">
+	<div class="col-md-3 col-md-offset-3">
+		<div class="panel panel-danger">
+			<div class="panel-heading">Body Fat Percentage Calculator</div>
+			<table class="table table-striped table-bordered">					
+			<tbody>
+				<tr>
+					<td>
+						<label class="control-label">BMI</label>
+					</td>
+					<td>
+						<form class="form-inline" role="form">						
+						<input type="text" placeholder="Enter Bmi" class="form-control" ng-model="bmiBfp">
+						</form>
+					</td>					
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label">Age</label>
+					</td>
+					<td>
+						<form class="form-inline" role="form">
+							<div class="form-group">
+								<input type="text" placeholder="Enter Age" class="form-control" ng-model="ageBfp">
+							</div>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="control-label">Gender</label>
+					</td>
+					<td>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsRadios" ng-model="male" value="true">
+								Male
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsRadios" ng-model="female" value="true">
+								Female
+							</label>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type="button" class="btn btn-primary" ng-click="calcBfp(bmiBfp,ageBfp,male,female)">BMI</button>
+					</td>
+					<td>
+					{{bfpStat}}
+					</td>
+				</tr>
+			</tbody>			
+			</table>
+			
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fem20" ng-show="fem20">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagory for women 16 - 40 years</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 21%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>21% - 33%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>34% - 39%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>39% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fem40" ng-show="fem40">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagoy for women 41 - 60 years</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 23%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>23% - 35%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>36% - 40%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>40% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="fem60" ng-show="fem60">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagory for women 61 - years and above</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 24%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>24% - 36%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>37% - 42%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>42% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="male20" ng-show="male20">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagory for Men 16 - 40 years</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 8%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>8% - 19%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>20% - 25%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>25% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="male40" ng-show="male40">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagory for men 41 - 60 years</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 11%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>11% - 22%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>23% - 27%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>27% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="male60" ng-show="male60">
+			<div class="panle panel-info">
+				<div class="panel-heading">Fitness Catagory for men 60 - years and above</div>
+				<table class="table table-striped table-bordered">
+					<thead><th>BFP</th><th>Catagory</th></thead>
+					<tbody>
+						<tr>
+							<td>Below 13%</td>
+							<td>Underfat</td>
+						</tr>
+						<tr>
+							<td>13% - 25%</td>
+							<td>Healthy</td>
+						</tr>
+						<tr>
+							<td>26% - 30%</td>
+							<td>Overweight</td>
+						</tr>
+						<tr>
+							<td>30% - and Above</td>
+							<td>Obese</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row8">
+	<div class="col-md-8 col-md-offset-2" ng-show="underweight">
+		<div class="alert alert-warning" role="alert">
+  			<a href="/#/nutrition" class="alert-link">Uh Oh looks like you got to eat a few more twinkies....<strong>Click here to move on to Step 3</strong></a>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2" ng-show="normal">
+		<div class="alert alert-success" role="alert">
+	  		<a href="/#/nutrition" class="alert-link">Congradulations!! You are perfeclty HEALTHY....<strong>Click here to move on to Step 3</strong></a>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2" ng-show="overweight">
+		<div class="alert alert-info" role="alert">
+	 	 	<a href="/#/nutrition" class="alert-link">Lets get ready to Rock!!...Click here to move on to Step 3</a>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2" ng-show="obese">
+		<div class="alert alert-danger" role="alert">
+	  		<a href="/#/nutrition" class="alert-link">Now you know, lets do something about it!!!.....<strong>Click here to move on to Step 3</strong></a>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
