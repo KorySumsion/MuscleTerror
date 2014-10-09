@@ -19,5 +19,4 @@ app.controller('DashboardCtrl', function($scope, userReference, thingsReference)
 	};
 
 
-
 });

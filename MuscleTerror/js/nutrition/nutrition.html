@@ -1,5 +1,10 @@
+<div class="row1">
+	<div class="col-md-12">
+		<p class="text-center"><strong class="steps">STEP 3 CALCULATE YOUR DAILY CALORIE INTAKE</strong></p>
+	</div>
+</div>
 <div class="row5">
-	<div class="col-md-3 col-md-offset-3">
+	<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-danger">
 				<div class="panel-heading">Calorie Calculator</div>
 				<table class="table table-striped table-bordered">					
@@ -31,43 +36,56 @@
 							<label class="control-label">Activity Level</label>
 						</td>
 						<td>
-						<div class="dropdown">
-  							<select class="btn btn-default dropdown-toggle" ng-model="fitnessLevel">
-  							<option value="2">Exercise 2 days Week</option>
-  							<option value="3">Exercise 3 days /week</option>
-  							<option>3</option>
-  							<option>4</option>
-
-  							</select>
-
-  							{{fitnessLevel}}
-
-  							{{test}}
-
-  							<button ng-click="calculateFitLvl()">calc</button>
-
-  								</div>
-							<!-- <div class="dropdown">
-							  	<a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-							    Action 
-							    	<span class="caret"></span>
-							  	</a>
-							  	<ul class="dropdown-menu" role="menu">
-							    	<li><a href="#">Action</a></li>
-							    	<li><a href="#">Another action</a></li>
-							    	<li><a href="#">Something else here</a></li>
-							    	<li class="divider"></li>
-							    	<li><a href="#">Separated link</a></li>
-							  </ul>
-							</div> -->
+							<div class="dropdown">
+	  							<select class="btn btn-default dropdown-toggle" ng-model="fitnessLevel">
+		  							<option value="1.2">Low Intensity</option>
+		  							<option value="1.375">Light Exercise</option>
+		  							<option value="1.55">Moderate Exercise</option>
+		  							<option value="1.725">Active Exercise</option>
+		  							<option value="1.9">Extremely Active</option>
+	  							</select>	  							
+	  						</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" ng-click="calcBfp(bmiBfp,ageBfp,male,female)">BMI</button>
+							<button type="button" class="btn btn-primary" ng-click="calorieCalc(calBfp,weightCal,fitnessLevel)">BMI</button>
 						</td>
 						<td>
-						{{}}
+						{{calorieIntake}}
+						</td>
+					</tr>
+				</tbody>			
+				</table>			
+			</div>
+	</div>
+	<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-danger">
+				<div class="panel-heading">LOSE FAT :)</div>
+				<table class="table table-striped table-bordered">					
+				<tbody>
+					<tr>
+						<td>
+							<label class="control-label">Reduce Calories</label>
+						</td>
+						<td>
+							<div class="dropdown">
+	  							<select class="btn btn-default dropdown-toggle" ng-model="diet">
+		  							<option value=".05">5% Calorie Reduction</option>
+		  							<option value=".1">10% Calorie Reduction</option>
+		  							<option value=".15">15% Calorie Reduction</option>
+		  							<option value=".20">20% Calorie Reduction</option>
+		  							<option value=".25">25% Calorie Reduction</option>
+	  							</select>	  							
+	  						</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" class="btn btn-primary" ng-click="calReduction(diet)">BMI</button>
+						</td>
+						<td>
+						{{reducedCalories}}
 						</td>
 					</tr>
 				</tbody>			
