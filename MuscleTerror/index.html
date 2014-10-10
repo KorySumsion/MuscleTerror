@@ -24,6 +24,11 @@
 						<p class="text-center"><strong>MUSCLE TERROR</strong></p>
 					</div>
 				</div>
+				<div class="col-md-1 col-md-offset-1" ng-controller="mainCtrl">
+					<div class="ref">
+						<button type="button" class="btn btn-info" ng-click="logout()">Logout!</button>
+					</div>
+				</div>
 			</div>
 			<div class="row2">
 				<div class="col-md-10 col-md-offset-1">
@@ -38,6 +43,7 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js">
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular-route.js"></script>
+    	<script type="text/javascript" src="//code.angularjs.org/1.2.20/angular-cookies.js"></script>
     	<script type="text/javascript" src="//cdn.firebase.com/js/client/1.1.0/firebase.js"></script>
 		<script type="text/javascript" src="//cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
     	<script src="js/app.js"></script>
@@ -50,5 +56,6 @@
     	<script src="js/login/loginCtrl.js"></script>
     	<script src="js/firebase/firebaseService.js"></script>
     	<script src='js/authService.js'></script>
+    	<script src="js/mainCtrl.js"></script>
 	</body>
 </html>

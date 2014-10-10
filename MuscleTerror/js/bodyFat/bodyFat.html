@@ -15,7 +15,7 @@
 					</td>
 					<td>
 						<form class="form-inline" role="form">						
-						<input type="text" placeholder="Enter Bmi" class="form-control" ng-model="bmiBfp">
+						<input type="text" placeholder="Enter Bmi" class="form-control" ng-model="currentUser.bmi">
 						</form>
 					</td>					
 				</tr>
@@ -52,7 +52,7 @@
 				</tr>
 				<tr>
 					<td>
-						<button type="button" class="btn btn-primary" ng-click="calcBfp(bmiBfp,ageBfp,male,female)">BMI</button>
+						<button type="button" class="btn btn-primary" ng-click="calcBfp(currentUser.bmi,ageBfp,male,female)">BMI</button>
 					</td>
 					<td>
 					{{bfpStat}}

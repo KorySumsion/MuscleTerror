@@ -9,6 +9,7 @@ app.controller('bodyFatCtrl', function($scope) {
 		$scope.fem20 = false;
 		$scope.fem40 = false;
 		$scope.fem60 = false;
+		$scope.normal = false;
 		var bmi = Number(x);
         var age = Number(y);
 
@@ -80,7 +81,7 @@ app.controller('bodyFatCtrl', function($scope) {
             	if ($scope.bfp <= 21) {
 					$scope.underweight = true;
 				}
-				if ($scope.bfp > 21 && $scope.bfp <= 23) {
+				if ($scope.bfp > 21 && $scope.bfp <= 33) {
 					$scope.normal = true;
 				}
 				if ($scope.bfp >= 34 && $scope.bfp < 39) {
@@ -129,6 +130,8 @@ app.controller('bodyFatCtrl', function($scope) {
         }
         $scope.bmiBfp = '';
         $scope.ageBfp = '';
+        $scope.currentUser.bfp = $scope.bfp;
+        $scope.currentUser.$save();
 
 
 	}

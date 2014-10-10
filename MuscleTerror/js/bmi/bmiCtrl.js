@@ -1,13 +1,16 @@
 var app = angular.module('MuscleTerror');
 
-app.controller("bmiCtrl", function($scope){
+app.controller("bmiCtrl", function($scope, $location){
+	
+	console.log($scope.currentUser);
 
 	$scope.calcBmi = function(wt, ft, inch) {
 		$scope.underweight = false;
 		$scope.normal = false;
 		$scope.overweight = false;
 		$scope.obese = false;
-debugger;
+		$scope.currentUser.weight = wt || '';
+
 		var ht = (Number(ft) * 12) + Number(inch);
 		var bigNum = (wt / (ht * ht)) * 703;
 		$scope.bmi = Math.round(bigNum * 10) / 10;
@@ -24,6 +27,11 @@ debugger;
 			$scope.obese = true;
 		}
 
+		
+		$scope.currentUser.bmi = $scope.bmi || '';
+		$scope.currentUser.$save();
+
 	}
+
 
 })

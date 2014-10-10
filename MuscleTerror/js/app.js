@@ -1,4 +1,18 @@
-var app = angular.module("MuscleTerror", ['ngRoute', 'firebase']);
+var app = angular.module("MuscleTerror", ['ngRoute', 'firebase', 'ngCookies']);
+
+
+app.run(function($rootScope, authService, $location, $firebase){
+	$rootScope.$on('$routeChangeStart', function(evt, next, current){
+		if(authService.getUser()){
+			var authUser = authService.getUser();
+			$rootScope.currentUser = $firebase(new Firebase('https://muscleterror.firebaseio.com/users/' + authUser.uid)).$asObject();
+		} else {
+			$location.path('/login');
+		}
+	})
+})
+
+
 
 app.config(function($routeProvider){
 

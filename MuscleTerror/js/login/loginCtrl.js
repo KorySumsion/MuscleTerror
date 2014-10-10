@@ -1,6 +1,6 @@
 var app = angular.module('MuscleTerror');
 
-app.controller('LoginCtrl', function ($scope, authService, $location) {
+app.controller('loginCtrl', function ($scope, authService, $location) {
 	
 	$scope.login = function () {
 		return authService.login($scope.details, function(user){

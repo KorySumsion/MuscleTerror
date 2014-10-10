@@ -1,10 +1,17 @@
 var app = angular.module('MuscleTerror');
 
-app.service('authService', function(){
+app.service('authService', function($cookieStore){
 
 	var firebaseUrl = 'https://muscleterror.firebaseio.com/'
 
 	var firebaseLogin = new Firebase(firebaseUrl);
+
+	var activeUser = localStorage.getItem('user') || '';
+
+
+	var setUser = function(authData){
+		localStorage.setItem('user', JSON.stringify(authData));
+	}
 
 	this.login = function(user, cb) {
 		firebaseLogin.authWithPassword({
@@ -19,33 +26,44 @@ app.service('authService', function(){
 				}
 			} else if (authData) {
 				console.log("Login Successful! user ID:" + authData.uid);
+				setUser(authData);
 				cb(authData);
 			}
 		});
 	}
 
-	this.register = function(user,cb){
+	this.getUser = function(){
+		if(activeUser){
+			return JSON.parse(activeUser);
+		}
+	}
+
+	this.logout = function(){
+		localStorage.setItem('user', '');
+	}
+
+	this.register = function(user, cb){
 		firebaseLogin.createUser({
 			email: user.email,
 			password: user.password
 		}, function(error) {
 			if (error === null) {
-				console.log("created with success");
-				firebase.Login.authWithPassword({
-					email: user.email,
-					password: user.password
-				}, function(err, authData){
-					if (authData) {
-						authData.name = user.name;
-						authData.timeStamp = new Date().toISOString();
-						firebaseLogin.child('users').child(authData.uid.replace('simplelogin:', '')).set(authData);
-						cb(authData);
-					} else {
-						console.log('something is messes suckkka');
-					}
+				console.log("User created successfully");
+				firebaseLogin.authWithPassword({
+						email    : user.email,
+						password : user.password
+					}, function(err, authData) {
+				  if (authData) {
+				  	authData.name = user.name;
+				  	authData.timestamp = new Date().toISOString();
+				    firebaseLogin.child('users').child(authData.uid.replace('simplelogin:', '')).set(authData);
+				    cb(authData);
+				  } else {
+				  	console.log('something went wrong');
+				  }
 				});
 			} else {
-				console.log('error with creation of the user:', error);
+				console.log("Error creating user:", error);
 				return false;
 			}
 		});

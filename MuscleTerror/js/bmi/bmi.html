@@ -1,6 +1,7 @@
 <div class="row1">
 	<div class="col-md-12">
 		<p class="text-center"><strong class="steps">STEP 1 CALCULATE YOUR BODY MASS INDEX</strong></p>
+		<button class="button" ng-click="logout()">Logout</button>
 	</div>
 </div>
 <div class="row5">
@@ -15,7 +16,7 @@
 					</td>
 					<td>
 						<form class="form-inline" role="form">						
-						<input type="text" placeholder="Pounds" class="form-control" ng-model="weight">
+						<input type="text" placeholder="Pounds" class="form-control" ng-model="currentUser.weight">
 						</form>
 					</td>					
 				</tr>
@@ -38,10 +39,10 @@
 				</tr>
 				<tr>
 					<td>
-						<button type="button" class="btn btn-primary" ng-click="calcBmi(weight,feet,inches)">BMI</button>
+						<button type="button" class="btn btn-primary" ng-click="calcBmi(currentUser.weight,feet,inches)">BMI</button>
 					</td>
 					<td>
-					{{bmi}}
+					{{currentUser.bmi}}
 					</td>
 				</tr>
 			</tbody>			
