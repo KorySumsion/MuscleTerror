@@ -3,9 +3,11 @@ var app = angular.module("MuscleTerror", ['ngRoute', 'firebase', 'ngCookies']);
 
 app.run(function($rootScope, authService, $location, $firebase){
 	$rootScope.$on('$routeChangeStart', function(evt, next, current){
+		console.log(authService.getUser())
 		if(authService.getUser()){
 			var authUser = authService.getUser();
-			$rootScope.currentUser = $firebase(new Firebase('https://muscleterror.firebaseio.com/users/' + authUser.uid)).$asObject();
+			var userId = authUser.uid.replace('simplelogin:', '')
+			$rootScope.currentUser = $firebase(new Firebase('https://muscleterror.firebaseio.com/users/' + userId)).$asObject();
 		} else {
 			$location.path('/login');
 		}

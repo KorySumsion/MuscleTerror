@@ -27,6 +27,7 @@ app.service('authService', function($cookieStore){
 			} else if (authData) {
 				console.log("Login Successful! user ID:" + authData.uid);
 				setUser(authData);
+				activeUser = localStorage.getItem('user') || '';
 				cb(authData);
 			}
 		});
@@ -39,6 +40,7 @@ app.service('authService', function($cookieStore){
 	}
 
 	this.logout = function(){
+		activeUser = '';
 		localStorage.setItem('user', '');
 	}
 

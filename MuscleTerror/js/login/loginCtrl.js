@@ -6,18 +6,26 @@ app.controller('loginCtrl', function ($scope, authService, $location) {
 		return authService.login($scope.details, function(user){
 			user.uid = user.uid.replace('simplelogin:', '');
 			$scope.$apply(function(){
-				$location.path('/dashboard/' + user.uid)
+				$location.path('/' + user.uid)
 			});
 		});
 	};
 
 	$scope.register = function () {
 		return authService.register($scope.details, function(user){
+			// user.uid = user.uid.replace('simplelogin:', '');
+			// $scope.$apply(function(){
+			// 	$location.path('/')
+			// });
+
+authService.login($scope.details, function(user){
 			user.uid = user.uid.replace('simplelogin:', '');
 			$scope.$apply(function(){
-				$location.path('/dashboard/' + user.uid)
+				$location.path('/' + user.uid)
 			});
+
 		});
+});
 	};
 	
 	$scope.status = 'Register';
